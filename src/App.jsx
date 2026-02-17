@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { GrSearch } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
+import fotoMiguel from "./assets/miguelejemplo.jpg";
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,9 +43,9 @@ function App() {
       <main className="hero-container">
         <div className="hero-frame">
           <img
-            src="/src/assets/miguelejemplo.jpg"
+            src={fotoMiguel}
             className="hero-img"
-            alt="Miguel Villalta Luxury"
+            alt="Miguel Villalta"
           />
 
           <div className="hero-content">

@@ -3,12 +3,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,400;1,6..96,700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+
 :root {
   --fuente-h1: 'Bodoni Moda', serif;
   --fuente-serif: 'Playfair Display', serif;
   --fuente-sans: 'Montserrat', sans-serif;
-  --altura-nav: 80px; /* Definimos la altura del navbar */
-  --padding-marco: 30px; /* El padding que pediste para el efecto cuadro */
+  --altura-nav: 60px; /* Definimos la altura del navbar */
+  --padding-marco: 50px; /* El padding que pediste para el efecto cuadro */
 }
 
 * {
@@ -31,7 +33,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
+  padding: 40px 60px 0 60px;
   z-index: 1000;
   transition: all 0.4s ease;
   color: #333; /* Color inicial oscuro para que se vea sobre el fondo blanco del margen */
@@ -49,14 +51,14 @@ body {
   width: 35%;
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .nav-center {
   width: 30%;
   text-align: center;
-  font-family: var(--fuente-serif);
-  font-size: 24px;
+  font-family: 'Tenor Sans', sans-serif;;
+  font-size: 30px;
   letter-spacing: 6px;
   font-weight: bold;
 }
@@ -113,7 +115,7 @@ body {
 
 .hero-text h1 {
   font-family: var(--fuente-h1);
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 400;
   font-style: italic;
   margin-bottom: 5px;
@@ -121,9 +123,9 @@ body {
 }
 
 .hero-text p {
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
   opacity: 0.8;
 }
 

@@ -5,8 +5,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,400;1,6..96,700&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
 :root {
-  --fuente-h1: 'Bodoni Moda', serif;
+  --fuente-nombre: 'Cinzel', serif;
   --fuente-serif: 'Playfair Display', serif;
   --fuente-sans: 'Montserrat', sans-serif;
   --altura-nav: 60px; /* Definimos la altura del navbar */
@@ -117,7 +119,7 @@ body {
   font-family: var(--fuente-h1);
   font-size: 45px;
   font-weight: 400;
-  font-style: italic;
+  
   margin-bottom: 5px;
   text-transform: uppercase;
 }

@@ -3,15 +3,27 @@ import Logo from './Logo'
 import datos from '../data/atlas'
 
 export default function Footer() {
+  const { redes, copyright } = datos.footer
+
   return (
     <footer className="footer">
-      <Logo variant="oscuro" size={80} />
-      <div className="footer-redes">
-        {datos.footer.redes.map(r => (
-          <a key={r.nombre} href={r.url} className="footer-link">{r.nombre}</a>
-        ))}
+      <div className="footer-top">
+        <Logo variant="oscuro" size={100} />
+        <nav className="footer-nav">
+          {datos.navbar.links.map(link => (
+            <span key={link} className="footer-nav-link">{link}</span>
+          ))}
+          <span className="footer-nav-link">{datos.navbar.contacto}</span>
+        </nav>
+        <div className="footer-redes">
+          {redes.map(r => (
+            <a key={r.nombre} href={r.url} className="footer-red">{r.nombre}</a>
+          ))}
+        </div>
       </div>
-      <p className="footer-copy">{datos.footer.copyright}</p>
+      <div className="footer-bottom">
+        <p className="footer-copy">{copyright}</p>
+      </div>
     </footer>
   )
 }

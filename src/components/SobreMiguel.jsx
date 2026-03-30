@@ -8,6 +8,7 @@ export default function SobreMiguel() {
     <section className="sobre">
       <div className="sobre-img-wrap">
         <img src={imagen} alt={nombre} className="sobre-img" />
+        <div className="sobre-img-gradiente" />
       </div>
       <div className="sobre-texto">
         <p className="seccion-eyebrow">Sobre Miguel</p>

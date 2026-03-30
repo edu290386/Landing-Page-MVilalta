@@ -16,10 +16,11 @@ export default function PropiedadesDestacadas() {
               {p.etiqueta && (
                 <span className="propiedad-etiqueta">{p.etiqueta}</span>
               )}
-            </div>
-            <div className="propiedad-info">
-              <p className="propiedad-direccion">{p.direccion}</p>
-              <p className="propiedad-precio">{p.precio}</p>
+              <div className="propiedad-hover-overlay">
+                <p className="propiedad-hover-precio">{p.precio}</p>
+                <p className="propiedad-hover-direccion">{p.direccion}</p>
+                <span className="propiedad-hover-cta">Ver propiedad →</span>
+              </div>
             </div>
           </div>
         ))}

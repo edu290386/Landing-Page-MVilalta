@@ -1,87 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { GrSearch } from "react-icons/gr";
-import { RxHamburgerMenu } from "react-icons/rx";
-import fotoMiguel from "./assets/miguelejemplo.jpg";
+import React from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Credenciales from './components/Credenciales'
+import PropiedadesDestacadas from './components/PropiedadesDestacadas'
+import SobreMiguel from './components/SobreMiguel'
+import Medios from './components/Medios'
+import VentasHistoricas from './components/VentasHistoricas'
+import Contacto from './components/Contacto'
+import Footer from './components/Footer'
 
-function App() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export default function App() {
   return (
-    <div>
-      {/* NAVBAR */}
-      <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="nav-group">
-          <div style={{ cursor: "pointer" }}>Acerca ▾</div>
-          <div style={{ cursor: "pointer" }}>Listas ▾</div>
-          <div style={{ cursor: "pointer" }}>Media ▾</div>
-        </div>
-
-        <div className="nav-center">MIGUEL VILLALTA</div>
-
-        <div className="nav-right">
-          <span
-            style={{
-              cursor: "pointer",
-              fontSize: "10px",
-              letterSpacing: "2px",
-            }}
-          >
-            CONTACTO
-          </span>
-          <GrSearch style={{ cursor: "pointer", fontSize: "18px" }} />
-          <RxHamburgerMenu style={{ cursor: "pointer", fontSize: "24px" }} />
-        </div>
-      </nav>
-
-      {/* HERO ENMARCADO */}
-      <main className="hero-container">
-        <div className="hero-frame">
-          <img
-            src={fotoMiguel}
-            className="hero-img"
-            alt="Miguel Villalta"
-          />
-
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1>Lujo en su Máxima Expresión</h1>
-              <p>El Líder en Bienes Raíces de Lujo Global</p>
-            </div>
-
-            <button className="btn-explore">Explorar</button>
-          </div>
-        </div>
-      </main>
-
-      {/* SECCIÓN EXTRA PARA PROBAR EL SCROLL */}
-      <section
-        style={{
-          height: "100vh",
-          background: "white",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <p
-          style={{
-            color: "#ccc",
-            letterSpacing: "10px",
-            textTransform: "uppercase",
-            fontSize: "12px",
-          }}
-        >
-          Scroll para navegar
-        </p>
-      </section>
-    </div>
-  );
+    <>
+      <Navbar />
+      <Hero />
+      <Credenciales />
+      <PropiedadesDestacadas />
+      <SobreMiguel />
+      <Medios />
+      <VentasHistoricas />
+      <Contacto />
+      <Footer />
+    </>
+  )
 }
-
-export default App;

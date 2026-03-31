@@ -1,27 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi'
 import datos from '../data/atlas'
 
 export default function VentasHistoricas() {
+  const [current, setCurrent] = useState(0)
+  const ventas = datos.ventas
+  const total  = ventas.length
+
+  const prev = () => setCurrent(i => (i - 1 + total) % total)
+  const next = () => setCurrent(i => (i + 1) % total)
+
+  const v = ventas[current]
+
   return (
-    <section className="ventas" data-navtheme="light">
-      <div className="seccion-header">
-        <p className="seccion-eyebrow">Historial de Éxitos</p>
-        <h2 className="seccion-titulo ventas-titulo">Ventas Representativas</h2>
+    <section className="ventas">
+
+      <div className="propiedades-header">
+        <p className="propiedades-eyebrow">Ventas Realizadas con Éxito</p>
+        <h2 className="propiedades-titulo">Operaciones Destacadas</h2>
       </div>
-      <div className="ventas-grid">
-        {datos.ventas.map(v => (
-          <div key={v.id} className="venta-card">
-            <div className="venta-img-wrap">
-              <img src={v.imagen} alt={v.direccion} className="venta-img" />
-              <div className="venta-overlay">
-                <p className="venta-precio">{v.precio}</p>
-                <p className="venta-direccion">{v.direccion}</p>
-                <p className="venta-año">{v.año}</p>
-              </div>
-            </div>
+
+      <div
+        className="propiedad-slide"
+        style={{ backgroundImage: `url(${v.imagen})` }}
+      >
+        <div className="propiedad-overlay" />
+
+        <div className="propiedad-bottom">
+          <div className="propiedad-detalle">
+            <p className="propiedad-distrito">{v.distrito}</p>
+            <p className="propiedad-direccion">{v.direccion}</p>
+            <p className="propiedad-precio">{v.precio}</p>
           </div>
-        ))}
+
+          <div className="propiedad-nav">
+            <button className="propiedad-nav-btn" onClick={prev}>
+              <HiOutlineArrowNarrowLeft />
+            </button>
+            <span className="propiedad-counter">
+              {String(current + 1).padStart(2, '0')}
+              <span className="propiedad-counter-sep"> | </span>
+              {String(total).padStart(2, '0')}
+            </span>
+            <button className="propiedad-nav-btn" onClick={next}>
+              <HiOutlineArrowNarrowRight />
+            </button>
+          </div>
+        </div>
       </div>
+
+      <div className="propiedades-footer">
+        <button className="btn-ver-propiedades">Ver todas las ventas</button>
+      </div>
+
     </section>
   )
 }

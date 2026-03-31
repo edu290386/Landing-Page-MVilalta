@@ -131,7 +131,8 @@ const datos = {
   ventas: [
     {
       id: 1,
-      direccion: "Av. Javier Prado Este 4600, La Molina",
+      distrito: "La Molina",
+      direccion: "Av. Javier Prado Este 4600",
       precio: "$4,200,000",
       imagen:
         "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80",
@@ -139,7 +140,8 @@ const datos = {
     },
     {
       id: 2,
-      direccion: "Calle Tudela y Varela 180, San Isidro",
+      distrito: "San Isidro",
+      direccion: "Calle Tudela y Varela 180",
       precio: "$5,800,000",
       imagen:
         "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
@@ -147,7 +149,8 @@ const datos = {
     },
     {
       id: 3,
-      direccion: "Malecón de la Reserva 610, Miraflores",
+      distrito: "Miraflores",
+      direccion: "Malecón de la Reserva 610",
       precio: "$6,100,000",
       imagen:
         "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80",

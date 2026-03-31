@@ -3,7 +3,7 @@ import datos from '../data/atlas'
 
 export default function Medios() {
   return (
-    <section className="medios">
+    <section className="medios" data-navtheme="light">
       <div className="seccion-header">
         <p className="seccion-eyebrow">Apariciones en Medios</p>
         <h2 className="seccion-titulo">Prensa y Medios</h2>

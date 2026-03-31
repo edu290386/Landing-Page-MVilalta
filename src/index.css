@@ -352,7 +352,7 @@ body {
 ═══════════════════════════════════════════════════ */
 .propiedades {
   background: var(--negro);
-  padding: 40px 0;
+  padding: 40px 0 230px 0;
 }
 
 .propiedades-header {
@@ -386,7 +386,7 @@ body {
 .propiedad-slide {
   position: relative;
   width: 100%;
-  height: min(100vh, 760px);
+  height: min(100vh, 770px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

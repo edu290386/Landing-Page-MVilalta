@@ -3,7 +3,7 @@ import datos from '../data/atlas'
 
 export default function VentasHistoricas() {
   return (
-    <section className="ventas">
+    <section className="ventas" data-navtheme="light">
       <div className="seccion-header">
         <p className="seccion-eyebrow">Historial de Éxitos</p>
         <h2 className="seccion-titulo ventas-titulo">Ventas Representativas</h2>

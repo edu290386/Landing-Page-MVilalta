@@ -87,10 +87,10 @@ const datos = {
   ],
 
   sobre: {
-    nombre: "Miguel Villalta",
-    cargo: "Agente Inmobiliario de Lujo",
+    nombre: "MIGUEL VILLALTA",
+    cargo: "CA DRE #0332388",
     imagen:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=80",
+      "/sobremi.png",
     bio: "Con más de 15 años de experiencia en el mercado inmobiliario de lujo peruano, Miguel Villalta se ha consolidado como el referente indiscutible en transacciones de alto valor. Su profundo conocimiento de los mercados de San Isidro, Miraflores y La Molina, combinado con una red de contactos de primer nivel, garantiza resultados excepcionales para cada cliente.",
     cita: "Mi compromiso es encontrar no solo una propiedad, sino el hogar perfecto que refleje tu estilo de vida.",
   },

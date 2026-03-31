@@ -1,11 +1,11 @@
 import React from 'react'
 
 // variant: 'oscuro' → MV blanco/crema sobre fondo oscuro
-//          'claro'  → MV negro sobre fondo claro
+//          'claro'  → MV blanco sobre fondo gris (navbar-light)
 export default function Logo({ variant = 'oscuro', size = 80 }) {
-  const mvColor   = variant === 'oscuro' ? '#f9f8f5' : '#141414'
-  const textColor = variant === 'oscuro' ? '#beaf87' : '#141414'
-  const goldColor = '#beaf87'
+  const mvColor   = '#f9f8f5'
+  const textColor = variant === 'oscuro' ? '#beaf87' : '#ffffff'
+  const goldColor = variant === 'oscuro' ? '#beaf87' : '#332b14'
 
   return (
     <svg

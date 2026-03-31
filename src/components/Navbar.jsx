@@ -8,7 +8,23 @@ import datos from '../data/atlas'
 export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false)
   const [visible, setVisible]     = useState(true)
+  const [lightBg, setLightBg]     = useState(false)
   const prevScrollY                = useRef(0)
+
+  useEffect(() => {
+    const active = new Set()
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          entry.isIntersecting ? active.add(entry.target) : active.delete(entry.target)
+        })
+        setLightBg(active.size > 0)
+      },
+      { rootMargin: '0px 0px -90% 0px', threshold: 0 }
+    )
+    document.querySelectorAll('[data-navtheme="light"]').forEach(s => observer.observe(s))
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,7 +45,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className={`navbar${scrolled ? ' navbar-scrolled' : ''}${visible ? '' : ' navbar-hidden'}`}>
+    <nav className={`navbar${lightBg ? ' navbar-light' : (scrolled ? ' navbar-scrolled' : '')}${visible ? '' : ' navbar-hidden'}`}>
 
       <div className="nav-links">
         {datos.navbar.links.map(link => (
@@ -48,7 +64,7 @@ export default function Navbar() {
       </div>
 
       <div className="nav-logo">
-        <Logo variant="oscuro" size={150} />
+        <Logo variant={lightBg ? 'claro' : 'oscuro'} size={150} />
       </div>
 
       <div className="nav-right">

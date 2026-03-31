@@ -5,7 +5,7 @@ export default function Credenciales() {
   const { eyebrow, titulo, subtitulo, numeros } = datos.credenciales
 
   return (
-    <section className="credenciales">
+    <section className="credenciales" data-navtheme="light">
       <div className="credenciales-texto">
         <p className="credenciales-eyebrow">{eyebrow}</p>
         <p className="credenciales-titulo">

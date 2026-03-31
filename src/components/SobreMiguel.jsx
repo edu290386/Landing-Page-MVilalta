@@ -11,11 +11,15 @@ export default function SobreMiguel() {
         <div className="sobre-img-gradiente" />
       </div>
       <div className="sobre-texto">
-        <p className="seccion-eyebrow">Sobre Miguel</p>
-        <h2 className="seccion-titulo">{nombre}</h2>
+        <p className="seccion-eyebrow">Sobre mí</p>
+        <h2 className="seccion-titulo sobre-nombre">
+          <span>{nombre.split(' ')[0]}</span>
+          {' '}
+          <span className="sobre-nombre-apellido">{nombre.split(' ')[1]}</span>
+        </h2>
         <p className="sobre-cargo">{cargo}</p>
         <p className="sobre-bio">{bio}</p>
-        <blockquote className="sobre-cita">"{cita}"</blockquote>
+        <button className="btn-leer-mas">Leer más <span className="btn-arrow">→</span></button>
       </div>
     </section>
   )

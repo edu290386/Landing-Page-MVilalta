@@ -227,6 +227,10 @@ body {
   cursor: pointer;
   white-space: nowrap;
   transition: border-color 0.3s;
+  -webkit-transition: border-color 0.3s;
+  -moz-transition: border-color 0.3s;
+  -ms-transition: border-color 0.3s;
+  -o-transition: border-color 0.3s;
 }
 
 .btn-hero:hover {
@@ -244,13 +248,13 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--blanco);
-  padding: 140px 280px 200px 280px;
+  padding: 140px 210px 145px ;
   gap: 60px;
 }
 
 .credenciales-texto {
   text-align: center;
-  max-width: 700px;
+  max-width: 740px;
   margin: 0 auto;
 }
 
@@ -274,15 +278,17 @@ body {
   text-transform: uppercase;
 }
 
-.credenciales-cifra {
-  color: var(--gris-texto);
-}
-
 .credenciales-subtitulo {
   font-size: 15px;
   line-height: 1.5;
   color: var(--negro);
   opacity: 0.65;
+}
+
+.credenciales-cifra {
+  color: var(--gris-texto);
+  font-variant-numeric: lining-nums tabular-nums;
+  vertical-align: baseline;
 }
 
 .credenciales-numeros {
@@ -295,26 +301,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 40px;
   padding: 0 40px;
-  border-right: 1px solid rgba(20, 20, 20, 0.12);
 }
-
-.credencial-item:first-child { border-left: 1px solid rgba(20, 20, 20, 0.12); }
 
 .credencial-numero {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 48px;
+  font-size: 80px;
   font-weight: 400;
   color: var(--negro);
   letter-spacing: 1px;
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .credencial-etiqueta {
-  font-size: 11px;
-  letter-spacing: 3px;
+  font-size: 14px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--gris-texto);
+  font-weight: 500;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -342,90 +348,151 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════
-   PROPIEDADES DESTACADAS
+   PROPIEDADES DESTACADAS — CARRUSEL
 ═══════════════════════════════════════════════════ */
 .propiedades {
-  padding: 110px 80px;
-  background: var(--crema);
+  background: var(--negro);
+  padding: 40px 0;
 }
 
-.propiedades .seccion-titulo { color: var(--negro); }
-
-.propiedades-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+.propiedades-header {
+  text-align: center;
+  padding: 90px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.propiedad-card { cursor: pointer; }
+.propiedades-eyebrow {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--dorado);
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
 
-.propiedad-img-wrap {
+.propiedades-titulo {
+  font-family: 'Gelasio', Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.propiedad-slide {
   position: relative;
-  overflow: hidden;
-  aspect-ratio: 8 / 5;
-}
-
-.propiedad-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s ease;
+  height: min(100vh, 950px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease;
+  display: flex;
+  align-items: flex-end;
 }
 
-.propiedad-card:hover .propiedad-img { transform: scale(1.05); }
+.propiedad-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 20, 20, 0.85) 0%,
+    rgba(20, 20, 20, 0.1) 50%,
+    transparent 100%
+  );
+}
+
+.propiedad-bottom {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 50px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.propiedad-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.35s ease;
+}
+
+.propiedad-slide:hover .propiedad-detalle {
+  transform: translateY(-8px);
+}
 
 .propiedad-etiqueta {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: var(--negro);
-  color: var(--dorado);
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  padding: 6px 14px;
-  z-index: 2;
-}
-
-/* Overlay hover con cristal */
-.propiedad-hover-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(20, 20, 20, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 32px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.propiedad-card:hover .propiedad-hover-overlay { opacity: 1; }
-
-.propiedad-hover-precio {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 26px;
   color: var(--dorado);
-  margin-bottom: 6px;
 }
 
-.propiedad-hover-direccion {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.5px;
-  margin-bottom: 14px;
-}
-
-.propiedad-hover-cta {
-  font-size: 10px;
-  letter-spacing: 3px;
+.propiedad-distrito {
+  font-size: 11px;
+  letter-spacing: 4px;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.propiedad-direccion {
+  font-size: 18px;
   color: var(--blanco);
-  border-bottom: 1px solid var(--dorado);
-  padding-bottom: 2px;
-  align-self: flex-start;
+  letter-spacing: 0.5px;
+}
+
+.propiedad-precio {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 28px;
+  color: var(--dorado);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.propiedad-slide:hover .propiedad-precio {
+  max-height: 50px;
+}
+
+/* Navegación */
+.propiedad-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.propiedad-nav-btn {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s;
+}
+
+.propiedad-nav-btn:hover {
+  color: var(--blanco);
+}
+
+.propiedad-counter {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.propiedad-counter-sep {
+  color: var(--dorado);
+  margin: 0 4px;
 }
 
 /* ═══════════════════════════════════════════════════

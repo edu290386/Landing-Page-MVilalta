@@ -2,7 +2,7 @@ import React from 'react'
 import datos from '../data/atlas'
 
 export default function SobreMiguel() {
-  const { nombre, cargo, imagen, bio, cita } = datos.sobre
+  const { nombre, cargo, imagen, bio } = datos.sobre
 
   return (
     <section className="sobre">

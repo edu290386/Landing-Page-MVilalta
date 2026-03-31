@@ -526,25 +526,25 @@ body {
 ═══════════════════════════════════════════════════ */
 .sobre {
   position: relative;
-  min-height: 1000px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 80px;
 }
 
 .sobre-img-wrap {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
+  width: 100%;
+  line-height: 0;
 }
 
 .sobre-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: left top;
+  height: auto;
+  display: block;
   filter: grayscale(100%);
+}
+
+.sobre-texto {
+  position: absolute !important;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
 }
 
 .sobre-img-gradiente {

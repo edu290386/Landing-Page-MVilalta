@@ -395,22 +395,13 @@ body {
   align-items: flex-end;
 }
 
-.propiedad-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(20, 20, 20, 0.85) 0%,
-    rgba(20, 20, 20, 0.1) 50%,
-    transparent 100%
-  );
-}
+
 
 .propiedad-bottom {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 50px 70px;
+  padding: 50px 70px 50px 70px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -419,52 +410,54 @@ body {
 .propiedad-detalle {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0px;
   transition: transform 0.35s ease;
 }
 
-.propiedad-slide:hover .propiedad-detalle {
+.propiedad-slide:hover:not(:has(.propiedad-nav:hover)) .propiedad-detalle {
   transform: translateY(-8px);
 }
 
-.propiedad-etiqueta {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--dorado);
-}
-
 .propiedad-distrito {
-  font-size: 11px;
-  letter-spacing: 4px;
+  font-family: 'Gelasio', Georgia, serif;
+  font-size: 40px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255);
 }
 
 .propiedad-direccion {
-  font-size: 18px;
+  font-size: 15px;
   color: var(--blanco);
-  letter-spacing: 0.5px;
 }
 
 .propiedad-precio {
+  padding-top: 20px;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 28px;
-  color: var(--dorado);
+  font-size: 45px;
+  color: var(--blanco);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.35s ease;
+  transform: scaleX(0.8);
+  transform-origin: left;
+  -webkit-transform: scaleX(0.8);
+  -moz-transform: scaleX(0.8);
+  -ms-transform: scaleX(0.8);
+  -o-transform: scaleX(0.8);
+  font-variant-numeric: lining-nums tabular-nums;
+  line-height: 1;
 }
 
-.propiedad-slide:hover .propiedad-precio {
-  max-height: 50px;
+.propiedad-slide:hover:not(:has(.propiedad-nav:hover)) .propiedad-precio {
+  max-height: 90px;
 }
 
 /* Navegación */
 .propiedad-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 0px;
 }
 
 .propiedad-nav-btn {
@@ -486,14 +479,15 @@ body {
 }
 
 .propiedad-counter {
-  font-size: 13px;
-  letter-spacing: 2px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .propiedad-counter-sep {
   color: var(--dorado);
-  margin: 0 4px;
+  margin: 2px;
 }
 
 /* ═══════════════════════════════════════════════════

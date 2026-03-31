@@ -357,7 +357,7 @@ body {
 
 .propiedades-header {
   text-align: center;
-  padding: 90px 0 30px 0;
+  padding: 100px 0 30px 0;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -380,12 +380,13 @@ body {
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 20px;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .propiedad-slide {
   position: relative;
   width: 100%;
-  height: min(100vh, 950px);
+  height: min(100vh, 760px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

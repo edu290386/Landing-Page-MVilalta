@@ -13,8 +13,15 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       const current = window.scrollY
+      const diff = prevScrollY.current - current
       setScrolled(current > 60)
-      setVisible(current < prevScrollY.current || current < 60)
+      if (current < 60) {
+        setVisible(true)
+      } else if (diff > 5) {
+        setVisible(true)
+      } else if (diff < -5) {
+        setVisible(false)
+      }
       prevScrollY.current = current
     }
     window.addEventListener('scroll', onScroll, { passive: true })

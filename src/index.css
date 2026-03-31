@@ -393,6 +393,7 @@ body {
   transition: background-image 0.5s ease;
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
 }
 
 .propiedad-bottom {
@@ -409,12 +410,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0px;
+  position: relative;
   transition: transform 0.35s ease;
 }
 
-.propiedad-slide:hover:not(:has(.propiedad-nav:hover)) .propiedad-detalle {
-  transform: translateY(-8px);
-}
 
 .propiedad-distrito {
   font-family: 'Gelasio', Georgia, serif;
@@ -430,25 +429,27 @@ body {
 }
 
 .propiedad-precio {
-  padding-top: 20px;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 45px;
   color: var(--blanco);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-  transform: scaleX(0.8);
-  transform-origin: left;
-  -webkit-transform: scaleX(0.8);
-  -moz-transform: scaleX(0.8);
-  -ms-transform: scaleX(0.8);
-  -o-transform: scaleX(0.8);
   font-variant-numeric: lining-nums tabular-nums;
   line-height: 1;
+  transform: scaleX(0.8);
+  transform-origin: left;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.propiedad-slide:hover:not(:has(.propiedad-nav:hover)) .propiedad-detalle {
+  transform: translateY(-62px);
 }
 
 .propiedad-slide:hover:not(:has(.propiedad-nav:hover)) .propiedad-precio {
-  max-height: 90px;
+  opacity: 1;
 }
 
 /* Navegación */

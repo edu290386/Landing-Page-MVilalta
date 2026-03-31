@@ -55,6 +55,10 @@ export default function PropiedadesDestacadas() {
         </div>
       </div>
 
+      <div className="propiedades-footer">
+        <button className="btn-ver-propiedades">{datos.propiedades_titulo.boton}</button>
+      </div>
+
     </section>
   )
 }

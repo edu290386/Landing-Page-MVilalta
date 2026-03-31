@@ -352,7 +352,7 @@ body {
 ═══════════════════════════════════════════════════ */
 .propiedades {
   background: var(--negro);
-  padding: 40px 0 230px 0;
+  padding: 40px 0 140px 0;
 }
 
 .propiedades-header {
@@ -394,8 +394,6 @@ body {
   display: flex;
   align-items: flex-end;
 }
-
-
 
 .propiedad-bottom {
   position: relative;
@@ -488,6 +486,29 @@ body {
 .propiedad-counter-sep {
   color: var(--dorado);
   margin: 2px;
+}
+
+.propiedades-footer {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0 0 0;
+}
+
+.btn-ver-propiedades {
+  padding: 18px 48px;
+  background: var(--blanco);
+  color: var(--dorado);
+  border: none;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-ver-propiedades:hover {
+  background: var(--dorado);
+  color: #8a7a55;
 }
 
 /* ═══════════════════════════════════════════════════

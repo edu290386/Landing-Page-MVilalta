@@ -49,7 +49,7 @@ const datos = {
     ],
   },
 
-  propiedades_titulo: { eyebrow: 'Destacado', titulo: 'Propiedades de Lujo' },
+  propiedades_titulo: { eyebrow: 'Destacado', titulo: 'Propiedades de Lujo', boton: 'Ver todas las propiedades' },
 
   propiedades: [
     {

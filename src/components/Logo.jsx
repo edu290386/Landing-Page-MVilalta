@@ -11,11 +11,10 @@ export default function Logo({ variant = 'oscuro', size = 80 }) {
     <svg
       width={size}
       height={size}
-      viewBox="0 0 240 240"
+      viewBox="0 95 240 122"
       xmlns="http://www.w3.org/2000/svg"
       style={{ display: 'block' }}
     >
-      <line x1="60" y1="65" x2="180" y2="65" stroke={goldColor} strokeWidth="0.5" />
       <text
         x="120" y="138"
         textAnchor="middle"
@@ -30,7 +29,7 @@ export default function Logo({ variant = 'oscuro', size = 80 }) {
         x="120" y="196"
         textAnchor="middle"
         fontFamily="Arial, sans-serif"
-        fontSize="8"
+        fontSize="15"
         letterSpacing="3.5"
         fill={textColor}
       >BIENES RAÍCES</text>

@@ -11,7 +11,7 @@ export default function Footer() {
         <Logo variant="oscuro" size={100} />
         <nav className="footer-nav">
           {datos.navbar.links.map(link => (
-            <span key={link} className="footer-nav-link">{link}</span>
+            <span key={link.texto} className="footer-nav-link">{link.texto}</span>
           ))}
           <span className="footer-nav-link">{datos.navbar.contacto}</span>
         </nav>

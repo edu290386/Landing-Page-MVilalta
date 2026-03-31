@@ -6,22 +6,40 @@
 const datos = {
 
   navbar: {
-    links: ['Sobre Mí', 'Propiedades', 'Medios'],
+    links: [
+      {
+        texto: 'Sobre Mí',
+        submenu: ['Mi Historia', 'Filosofía', 'Reconocimientos'],
+      },
+      {
+        texto: 'Propiedades',
+        submenu: ['En Venta', 'Vendidas', 'Proyectos'],
+      },
+      {
+        texto: 'Medios',
+        submenu: ['Prensa', 'Televisión', 'Radio'],
+      },
+    ],
     contacto: 'Contacto',
   },
 
   hero: {
     imagen: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80',
-    titulo: 'Lujo en su\nMáxima Expresión',
-    subtitulo: 'El Líder en Bienes Raíces de Lujo en el Perú',
-    boton: 'Explorar Propiedades',
+    titulo: 'Simplemente lujo',
+    subtitulo: 'El líder en bienes raíces de lujo en el Perú',
+    boton: 'Explorar',
   },
 
-  credenciales: [
-    { numero: '$500M+', etiqueta: 'En Ventas' },
-    { numero: '15+',    etiqueta: 'Años de Experiencia' },
-    { numero: '200+',   etiqueta: 'Propiedades Cerradas' },
-  ],
+  credenciales: {
+    eyebrow: 'Destacado',
+    titulo: { antes: 'Con más de ', cifra: '$500 millones', despues: ' en ventas de propiedades de lujo' },
+    subtitulo: 'Miguel Villalta representa las residencias más exclusivas del Perú y es reconocido como el agente de bienes raíces de lujo más influyente del mercado limeño.',
+    numeros: [
+      { numero: '$500M+', etiqueta: 'En Ventas' },
+      { numero: '15+',    etiqueta: 'Años de Experiencia' },
+      { numero: '200+',   etiqueta: 'Propiedades Cerradas' },
+    ],
+  },
 
   propiedades: [
     {

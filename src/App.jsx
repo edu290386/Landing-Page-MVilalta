@@ -4,7 +4,6 @@ import Hero from './components/Hero'
 import Credenciales from './components/Credenciales'
 import PropiedadesDestacadas from './components/PropiedadesDestacadas'
 import SobreMiguel from './components/SobreMiguel'
-import Medios from './components/Medios'
 import VentasHistoricas from './components/VentasHistoricas'
 import Contacto from './components/Contacto'
 import Footer from './components/Footer'
@@ -17,7 +16,6 @@ export default function App() {
       <Credenciales />
       <PropiedadesDestacadas />
       <SobreMiguel />
-      <Medios />
       <VentasHistoricas />
       <Contacto />
       <Footer />

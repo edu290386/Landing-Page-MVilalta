@@ -207,7 +207,7 @@ body {
 }
 
 .hero-titulo {
-  font-family: 'Gelasio', Georgia, serif;
+  font-family: 'Playfair Display', Arial, sans-serif;
   font-size: 54px;
   font-weight: 400;
   color: var(--blanco);
@@ -273,7 +273,7 @@ body {
 }
 
 .credenciales-titulo {
-  font-family: 'Gelasio', Georgia, serif;
+  font-family: 'Playfair Display', Arial, sans-serif;
   font-size: 40px;
   font-weight: 400;
   line-height: 1.1;
@@ -377,7 +377,7 @@ body {
 }
 
 .propiedades-titulo {
-  font-family: 'Gelasio', Georgia, serif;
+  font-family: 'Playfair Display', Arial, sans-serif;
   font-size: 40px;
   font-weight: 400;
   line-height: 1.1;
@@ -420,7 +420,7 @@ body {
 
 
 .propiedad-distrito {
-  font-family: 'Gelasio', Georgia, serif;
+  font-family: 'Playfair Display', Arial, sans-serif;
   font-size: 40px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -712,12 +712,63 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════
-   VENTAS HISTÓRICAS
+   VENTAS HISTÓRICAS — CARRUSEL 3 COLUMNAS
 ═══════════════════════════════════════════════════ */
 .ventas {
   background: var(--negro);
   padding: 40px 0 140px 0;
 }
+
+.ventas-carrusel {
+  position: relative;
+  overflow: hidden;
+}
+
+.ventas-track {
+  display: flex;
+  gap: 16px;          /* debe coincidir con GAP en el componente */
+  will-change: transform;
+}
+
+.ventas-slide {
+  aspect-ratio: 3 / 4;
+  height: auto !important;
+  flex-shrink: 0;
+}
+
+.ventas-slide .propiedad-bottom {
+  padding: 30px 35px;
+}
+
+.ventas-slide .propiedad-distrito {
+  font-size: 28px;
+}
+
+.ventas-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  background: rgba(20, 20, 20, 0.65);
+  border: 1px solid rgba(190, 175, 135, 0.3);
+  color: var(--blanco);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.ventas-arrow:hover {
+  background: rgba(190, 175, 135, 0.2);
+  border-color: var(--dorado);
+}
+
+.ventas-arrow-prev { left: 20px; }
+.ventas-arrow-next { right: 20px; }
 
 /* ═══════════════════════════════════════════════════
    CONTACTO — IMAGEN FONDO + CRISTAL

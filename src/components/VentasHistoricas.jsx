@@ -1,16 +1,68 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi'
 import datos from '../data/atlas'
 
+const GAP      = 16
+const DURATION = 3500 // ms entre slides automáticos
+
+const calcStep = () => (window.innerWidth - GAP * 2) / 3 + GAP
+
 export default function VentasHistoricas() {
-  const [current, setCurrent] = useState(0)
   const ventas = datos.ventas
   const total  = ventas.length
+  const slides = [...ventas, ...ventas, ...ventas]
+  const n      = slides.length
 
-  const prev = () => setCurrent(i => (i - 1 + total) % total)
-  const next = () => setCurrent(i => (i + 1) % total)
+  // Inicialización lazy → step correcto desde el primer render
+  const [step,     setStep]     = useState(calcStep)
+  const [idx,      setIdx]      = useState(total)
+  const [animated, setAnimated] = useState(true)
 
-  const v = ventas[current]
+  const cardW = step - GAP
+
+  // Redimensión
+  useEffect(() => {
+    const onResize = () => setStep(calcStep())
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  // Auto-play
+  const timerRef = useRef(null)
+  const startTimer = () => {
+    clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => {
+      setAnimated(true)
+      setIdx(i => i + 1)
+    }, DURATION)
+  }
+  useEffect(() => {
+    startTimer()
+    return () => clearInterval(timerRef.current)
+  }, [])
+
+  // Snap al llegar a extremos
+  useEffect(() => {
+    if (idx >= total * 2) {
+      const t = setTimeout(() => { setAnimated(false); setIdx(idx - total) }, 520)
+      return () => clearTimeout(t)
+    }
+    if (idx < total) {
+      const t = setTimeout(() => { setAnimated(false); setIdx(idx + total) }, 520)
+      return () => clearTimeout(t)
+    }
+  }, [idx])
+
+  // Re-habilitar animación después del snap
+  useEffect(() => {
+    if (!animated) {
+      const raf = requestAnimationFrame(() => setAnimated(true))
+      return () => cancelAnimationFrame(raf)
+    }
+  }, [animated])
+
+  const goNext = () => { setAnimated(true); setIdx(i => i + 1); startTimer() }
+  const goPrev = () => { setAnimated(true); setIdx(i => i - 1); startTimer() }
 
   return (
     <section className="ventas">
@@ -20,33 +72,40 @@ export default function VentasHistoricas() {
         <h2 className="propiedades-titulo">Operaciones Destacadas</h2>
       </div>
 
-      <div
-        className="propiedad-slide"
-        style={{ backgroundImage: `url(${v.imagen})` }}
-      >
-        <div className="propiedad-overlay" />
+      <div className="ventas-carrusel">
 
-        <div className="propiedad-bottom">
-          <div className="propiedad-detalle">
-            <p className="propiedad-distrito">{v.distrito}</p>
-            <p className="propiedad-direccion">{v.direccion}</p>
-            <p className="propiedad-precio">{v.precio}</p>
-          </div>
+        <button className="ventas-arrow ventas-arrow-prev" onClick={goPrev}>
+          <HiOutlineArrowNarrowLeft />
+        </button>
+        <button className="ventas-arrow ventas-arrow-next" onClick={goNext}>
+          <HiOutlineArrowNarrowRight />
+        </button>
 
-          <div className="propiedad-nav">
-            <button className="propiedad-nav-btn" onClick={prev}>
-              <HiOutlineArrowNarrowLeft />
-            </button>
-            <span className="propiedad-counter">
-              {String(current + 1).padStart(2, '0')}
-              <span className="propiedad-counter-sep"> | </span>
-              {String(total).padStart(2, '0')}
-            </span>
-            <button className="propiedad-nav-btn" onClick={next}>
-              <HiOutlineArrowNarrowRight />
-            </button>
-          </div>
+        <div
+          className="ventas-track"
+          style={{
+            transform:  `translateX(${-idx * step}px)`,
+            transition: animated ? 'transform 0.5s ease' : 'none',
+          }}
+        >
+          {slides.map((v, i) => (
+            <div
+              key={i}
+              className="ventas-slide propiedad-slide"
+              style={{ width: cardW, backgroundImage: `url(${v.imagen})` }}
+            >
+              <div className="propiedad-overlay" />
+              <div className="propiedad-bottom">
+                <div className="propiedad-detalle">
+                  <p className="propiedad-distrito">{v.distrito}</p>
+                  <p className="propiedad-direccion">{v.direccion}</p>
+                  <p className="propiedad-precio">{v.precio}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+
       </div>
 
       <div className="propiedades-footer">
